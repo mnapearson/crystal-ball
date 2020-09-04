@@ -2,6 +2,7 @@ const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const PORT = process.env.PORT || 3000;
 
 const db = {
   answers: [
@@ -52,6 +53,6 @@ app.get("/answers", (request, response) => {
 
 app.use(express.static(__dirname + "/public"));
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("Server started on http://localhost:3000");
 });
