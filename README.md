@@ -1,3 +1,3 @@
-# Random Words Express API
+# Crystal Ball Express API
 
-A simple API returning random words to get started with express.
+generating random answers from the crystal ball.
