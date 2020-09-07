@@ -2,7 +2,6 @@ const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const fetch = require("node.fetch");
 const PORT = process.env.PORT || 3000;
 
 const db = {
