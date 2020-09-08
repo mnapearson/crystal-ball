@@ -4,7 +4,6 @@ const logger = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3000;
-const request = require("request");
 
 const db = {
   answers: [
@@ -50,25 +49,8 @@ const db = {
 app.use(logger("dev"));
 app.use(cors());
 app.use(bodyParser.json());
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
 
 // controllers
-
-app.get("/horoscope/scorpio", (req, res) => {
-  request(
-    { url: "https://horoscope-api.herokuapp.com/horoscope/today/scorpio" },
-    (error, response, body) => {
-      if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: "error", message: err.message });
-      }
-
-      res.json(JSON.parse(body));
-    }
-  );
-});
 
 app.get("/answers/random", (request, response) => {
   const randomAnswer = Math.floor(Math.random() * db.answers.length);
